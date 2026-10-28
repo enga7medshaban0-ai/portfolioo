@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern multilingual portfolio showcasing front-end development, projects and experience.">
+  <meta name="theme-color" content="#0b1017">
+  <title>Ahmed Shaban Hassan | Front-End Developer</title>
+  <!-- خطوط وأيقونات اختيارية عبر CDN؛ الموقع يعمل بدونها باستخدام خطوط النظام -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- defer: يُشغِّل الجافاسكريبت بعد قراءة HTML، فيعمل تأثير الكتابة عند فتح الصفحة -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div id="scrollProgress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ==================== شريط التنقل ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Ahmed Shaban Hassan — Home" id="brandLink">
+        <span class="brand-symbol" aria-hidden="true">A<span>.</span></span>
+        <span class="brand-name" id="brandName">Ahmed<span class="brand-suffix">.dev</span></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+        <a href="#journey" class="nav-link" data-i18n="nav.journey">Journey</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- تغيير المظهر: يتم حفظ الاختيار في LocalStorage -->
+        <button id="themeToggle" class="icon-button theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <i class="fa-solid fa-sun theme-sun" aria-hidden="true"></i>
+          <i class="fa-solid fa-moon theme-moon" aria-hidden="true"></i>
+        </button>
+
+        <!-- قائمة اللغة: اختيار لغة واحدة من 4، مع دعم لوحة المفاتيح -->
+        <div class="language-switcher" id="languageSwitcher">
+          <button id="languageButton" class="language-button" type="button" aria-label="Choose language" aria-haspopup="menu" aria-expanded="false" aria-controls="languageMenu">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span id="currentLanguage">EN</span>
+            <i class="fa-solid fa-chevron-down chevron" aria-hidden="true"></i>
+          </button>
+          <div id="languageMenu" class="language-menu" role="menu" aria-label="Languages" hidden>
+            <button type="button" role="menuitemradio" aria-checked="true" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="ar"><span>العربية</span><span>AR</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="fr"><span>Français</span><span>FR</span></button>
+            <button type="button" role="menuitemradio" aria-checked="false" data-lang="es"><span>Español</span><span>ES</span></button>
+          </div>
+        </div>
+
+        <a class="btn btn-small btn-accent header-cta" href="#contact"><span data-i18n="nav.hire">Let's talk</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <button class="menu-toggle icon-button" type="button" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ==================== HOME / HERO ==================== -->
+    <section id="home" class="hero section" aria-labelledby="heroHeading">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="availability-pill reveal"><span class="status-dot"></span><span data-i18n="hero.available">Available for exciting opportunities</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></div>
+          <p class="eyebrow hero-eyebrow reveal" data-i18n="hero.eyebrow">WELCOME TO MY DIGITAL SPACE <span aria-hidden="true">✳</span></p>
+          <h1 id="heroHeading" class="hero-heading reveal">
+            <span class="hero-greeting" id="heroGreeting" data-i18n="hero.greeting">Hello, I'm</span>
+            <!-- التحية ثم الاسم يُكتبان حرفًا حرفًا عند فتح الموقع، ثم تتغير المسميات الوظيفية -->
+            <span class="hero-person-name typing-text" id="heroName">Ahmed Shaban Hassan</span>
+          </h1>
+          <p class="hero-role reveal"><span data-i18n="hero.prefix">I build the web as a</span> <span class="typed-role typing-text" id="typedRole">Front-End Developer</span></p>
+          <p class="hero-description reveal" data-i18n="hero.description">I design and develop thoughtful, high-performing interfaces that feel beautiful, work effortlessly, and leave a lasting impression.</p>
+          <div class="hero-buttons reveal">
+            <a id="downloadCv" class="btn btn-accent btn-large" href="#"><span data-i18n="hero.download">Download CV</span><i class="fa-solid fa-download" aria-hidden="true"></i></a>
+            <a href="#contact" class="btn btn-outline btn-large"><span data-i18n="hero.contact">Contact me</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <div class="hero-traits reveal">
+            <span><i class="fa-solid fa-check" aria-hidden="true"></i><span data-i18n="hero.trait1">Clean code</span></span>
+            <span><i class="fa-solid fa-check" aria-hidden="true"></i><span data-i18n="hero.trait2">Thoughtful UI</span></span>
+            <span><i class="fa-solid fa-check" aria-hidden="true"></i><span data-i18n="hero.trait3">Real impact</span></span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="portrait-frame">
+            <div class="portrait-topline"><span data-i18n="hero.photoLabel">CREATIVE MIND / DEVELOPER</span><span>01 / 01</span></div>
+            <div class="portrait-inner">
+              <!-- عدِّل photo في إعدادات script.js لعرض صورتك بدل المعاينة -->
+              <img id="profileImage" class="profile-image" alt="Portrait of Ahmed Shaban Hassan" hidden>
+              <div class="portrait-fallback" id="portraitFallback" aria-hidden="true">
+                <div class="avatar-halo"></div><span id="portraitInitials">AS</span><div class="avatar-sub">DESIGN <span>×</span> CODE</div>
+              </div>
+            </div>
+            <div class="portrait-bottomline"><span data-i18n="hero.photoBottom">CRAFTED WITH PURPOSE</span><i class="fa-solid fa-asterisk" aria-hidden="true"></i></div>
+          </div>
+          <div class="float-card float-card-top"><span class="float-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span><div><strong data-i18n="hero.floatTop">Web experiences</strong><small data-i18n="hero.floatTopSub">Made with intention</small></div></div>
+          <div class="float-card float-card-bottom"><span class="float-icon float-icon-alt"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span><div><strong data-i18n="hero.floatBottom">Pixel by pixel</strong><small data-i18n="hero.floatBottomSub">Always evolving</small></div></div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue"><span data-i18n="hero.scroll">SCROLL TO EXPLORE</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section about-section" aria-labelledby="aboutHeading">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-number">01 /</span><span class="section-kicker" data-i18n="about.kicker">A LITTLE ABOUT ME</span></div>
+        <div class="about-layout">
+          <div class="about-statement reveal"><h2 id="aboutHeading" class="section-title" data-i18n="about.title">Beyond the code, <span class="accent-text">there's a purpose.</span></h2><div class="big-asterisk" aria-hidden="true">✳</div></div>
+          <div class="about-body reveal">
+            <p class="about-lead" data-i18n="about.lead">I'm a front-end developer who cares about the details — from the first wireframe to the final interaction.</p>
+            <p data-i18n="about.description">My focus is turning complex ideas into intuitive, accessible and responsive digital products. I enjoy combining thoughtful design, solid engineering and continuous learning to create experiences that people love using.</p>
+            <div class="about-facts">
+              <div><span data-i18n="about.fact1Label">MY FOCUS</span><strong data-i18n="about.fact1Value">UI engineering</strong></div>
+              <div><span data-i18n="about.fact2Label">MY APPROACH</span><strong data-i18n="about.fact2Value">User-first thinking</strong></div>
+              <div><span data-i18n="about.fact3Label">OPEN TO</span><strong data-i18n="about.fact3Value">Great opportunities</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="section skills-section" aria-labelledby="skillsHeading">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-number">02 /</span><span class="section-kicker" data-i18n="skills.kicker">WHAT I WORK WITH</span></div>
+        <div class="section-heading-row reveal"><div><h2 id="skillsHeading" class="section-title" data-i18n="skills.title">Tools of my <span class="accent-text">craft.</span></h2><p class="section-subtitle" data-i18n="skills.subtitle">A growing toolkit for building polished web experiences.</p></div><span class="heading-decoration" aria-hidden="true">&lt;/&gt;</span></div>
+        <div class="skills-grid">
+          <!-- بطاقات تقنية ثابتة؛ يتم تغيير وصف كل مهارة حسب اللغة -->
+          <article class="skill-card reveal"><span class="skill-icon icon-html"><i class="fa-brands fa-html5" aria-hidden="true"></i></span><div><h3>HTML5</h3><p data-i18n="skills.html">Semantic, accessible structure.</p></div><span class="skill-index">01</span></article>
+          <article class="skill-card reveal"><span class="skill-icon icon-css"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i></span><div><h3>CSS3</h3><p data-i18n="skills.css">Responsive layout and motion.</p></div><span class="skill-index">02</span></article>
+          <article class="skill-card reveal"><span class="skill-icon icon-js"><i class="fa-brands fa-js" aria-hidden="true"></i></span><div><h3>JavaScript</h3><p data-i18n="skills.js">Useful, fluid interactions.</p></div><span class="skill-index">03</span></article>
+          <article class="skill-card reveal"><span class="skill-icon icon-react"><i class="fa-brands fa-react" aria-hidden="true"></i></span><div><h3>React</h3><p data-i18n="skills.react">Component-driven interfaces.</p></div><span class="skill-index">04</span></article>
+          <article class="skill-card reveal"><span class="skill-icon icon-tailwind"><i class="fa-solid fa-wind" aria-hidden="true"></i></span><div><h3>Tailwind CSS</h3><p data-i18n="skills.tailwind">Consistent, scalable styling.</p></div><span class="skill-index">05</span></article>
+          <article class="skill-card reveal"><span class="skill-icon icon-git"><i class="fa-brands fa-git-alt" aria-hidden="true"></i></span><div><h3>Git & GitHub</h3><p data-i18n="skills.git">Organized collaboration.</p></div><span class="skill-index">06</span></article>
+        </div>
+        <div class="soft-skills reveal"><strong data-i18n="skills.softTitle">Beyond technical skills</strong><div><span data-i18n="skills.soft1">Problem solving</span><span data-i18n="skills.soft2">Communication</span><span data-i18n="skills.soft3">Attention to detail</span><span data-i18n="skills.soft4">Adaptability</span></div></div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="section projects-section" aria-labelledby="projectsHeading">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-number">03 /</span><span class="section-kicker" data-i18n="projects.kicker">SELECTED WORK</span></div>
+        <div class="section-heading-row reveal"><div><h2 id="projectsHeading" class="section-title" data-i18n="projects.title">Work that <span class="accent-text">speaks.</span></h2><p class="section-subtitle" data-i18n="projects.subtitle">Sample projects — replace these entries with your real work before publishing.</p></div><span class="section-aside" data-i18n="projects.aside">EXPLORE MY PROCESS ↗</span></div>
+        <!-- التصفية تتم بالجافاسكريبت بدون إعادة تحميل الصفحة -->
+        <div class="project-filters reveal" id="projectFilters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter-button active" data-filter="all" aria-pressed="true" data-i18n="projects.all">All work</button>
+          <button type="button" class="filter-button" data-filter="interactive" aria-pressed="false" data-i18n="projects.interactive">Interactive</button>
+          <button type="button" class="filter-button" data-filter="javascript" aria-pressed="false">JavaScript</button>
+          <button type="button" class="filter-button" data-filter="react" aria-pressed="false">React</button>
+          <button type="button" class="filter-button" data-filter="css" aria-pressed="false">HTML / CSS</button>
+        </div>
+        <div id="projectsGrid" class="projects-grid" aria-live="polite" aria-relevant="additions removals"></div>
+        <noscript><p>Enable JavaScript to view and filter projects. / فعِّل JavaScript لعرض المشاريع.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ==================== JOURNEY: التعليم والتدريب الحقيقي ==================== -->
+    <section id="journey" class="section journey-section" aria-labelledby="journeyHeading">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-number">04 /</span><span class="section-kicker" data-i18n="journey.kicker">MY LEARNING JOURNEY</span></div>
+        <div class="section-heading-row reveal"><div>
+          <h2 id="journeyHeading" class="section-title" data-i18n="journey.title">Experience grows with <span class="accent-text">passion.</span></h2>
+          <p class="section-subtitle" data-i18n="journey.subtitle">From Information Systems studies to Front-End development, technical training and community initiatives.</p>
+        </div></div>
+
+        <!-- لا نعرض وظائف أو خبرات عملية غير مؤكدة: التعليم والدورات في عمودين واضحين -->
+        <div class="timeline-columns">
+          <div class="timeline-column reveal">
+            <h3><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span data-i18n="journey.education">Academic Education</span></h3>
+            <div class="timeline">
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-date" data-i18n="journey.degreeDate">2025</span>
+                <h4 data-i18n="journey.degreeTitle">Bachelor's Degree in Information Systems — MET</h4>
+                <p data-i18n="journey.degreeDesc">Graduated in 2025, specializing in Information Systems.</p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-date" data-i18n="journey.projectDate">2025</span>
+                <h4 data-i18n="journey.projectTitle">Graduation Project — Excellent</h4>
+                <p data-i18n="journey.projectDesc">My graduation project received an Excellent grade.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="timeline-column reveal">
+            <h3><i class="fa-solid fa-certificate" aria-hidden="true"></i><span data-i18n="journey.training">Technical Courses & Certifications</span></h3>
+            <div class="timeline">
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-date" data-i18n="journey.mansouraDate">24 Jun — 14 Aug 2025</span>
+                <h4 data-i18n="journey.mansouraTitle">Web Design (Front-End) — Mansoura University</h4>
+                <p data-i18n="journey.mansouraDesc">48 training hours at the Faculty of Science's Center for Studies and Scientific Consultations, in cooperation with ITC. Grade: Excellent.</p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <span class="timeline-date" data-i18n="journey.maharaDate">Specialized online courses</span>
+                <h4 data-i18n="journey.maharaTitle">Front-End Development Certificates — MaharaTech</h4>
+                <p data-i18n="journey.maharaDesc">Front-End training courses and certificates from MaharaTech. Exact course titles and dates can be added later.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        
+    </section>
+
+<!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="section contact-section" aria-labelledby="contactHeading">
+      <div class="container">
+        <div class="section-head reveal"><span class="section-number">05 /</span><span class="section-kicker" data-i18n="contact.kicker">LET'S CONNECT</span></div>
+        <div class="contact-layout">
+          <div class="contact-copy reveal"><h2 id="contactHeading" class="section-title" data-i18n="contact.title">Have an idea? <span class="accent-text">Let's build it.</span></h2><p class="section-subtitle" data-i18n="contact.subtitle">Whether you have a project, an opportunity or just want to say hello — I'd love to hear from you.</p>
+            <div class="contact-details">
+              <!-- الروابط فارغة افتراضيًا؛ تتم تعبئتها من إعدادات PROFILE داخل script.js -->
+              <div class="contact-detail"><span class="detail-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span><div class="detail-content"><span data-i18n="contact.phone">Phone number</span><strong id="phoneDisplay" data-i18n="contact.addPhone">Add your phone number</strong><div class="contact-mini-actions"><a id="callLink" href="#" data-i18n="contact.call">Call</a><a id="whatsappLink" href="#" data-i18n="contact.whatsapp">WhatsApp</a></div></div></div>
+              <div class="contact-detail"><span class="detail-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span><div class="detail-content"><span data-i18n="contact.email">Email address</span><a id="emailLink" href="#" data-i18n="contact.addEmail">Add your email address</a></div></div>
+              <div class="contact-detail"><span class="detail-icon"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></span><div class="detail-content"><span>LinkedIn</span><a id="linkedinLink" href="#" data-i18n="contact.addLinkedin">Add your LinkedIn profile</a></div></div>
+              <div class="contact-detail"><span class="detail-icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span><div class="detail-content"><span>GitHub</span><a id="githubLink" href="#" data-i18n="contact.addGithub">Add your GitHub profile</a></div></div>
+              <div class="contact-detail"><span class="detail-icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span><div class="detail-content"><span>Instagram</span><a id="instagramLink" href="#" data-i18n="contact.addInstagram">Add your Instagram profile</a></div></div>
+            </div>
+          </div>
+
+          <div class="contact-form-shell reveal"><div class="form-header"><h3 data-i18n="form.title">Send a message</h3><span class="form-indicator" aria-hidden="true">✳</span></div>
+            <!-- نموذج حقيقي من جهة الواجهة؛ يتطلب Endpoint للإرسال الفعلي -->
+            <form id="contactForm" novalidate>
+              <div class="form-field"><label for="contactName" data-i18n="form.name">Your name</label><input id="contactName" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="nameError" data-i18n-placeholder="form.namePlaceholder" placeholder="What should I call you?"><small class="field-error" id="nameError"></small></div>
+              <div class="form-field"><label for="contactEmail" data-i18n="form.email">Your email</label><input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="emailError" data-i18n-placeholder="form.emailPlaceholder" placeholder="you@example.com"><small class="field-error" id="emailError"></small></div>
+              <div class="form-field"><label for="contactMessage" data-i18n="form.message">Your message</label><textarea id="contactMessage" name="message" rows="5" minlength="12" maxlength="2000" required aria-describedby="messageError" data-i18n-placeholder="form.messagePlaceholder" placeholder="Tell me about your project..."></textarea><small class="field-error" id="messageError"></small></div>
+              <div class="honeypot" aria-hidden="true"><label for="contactWebsite">Leave blank</label><input id="contactWebsite" name="website" type="text" autocomplete="off" tabindex="-1"></div>
+              <button class="btn btn-accent btn-submit" id="submitButton" type="submit"><span data-i18n="form.send">Send message</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+              <p class="form-note" data-i18n="form.note">To enable direct sending, add your Formspree endpoint in script.js. Otherwise a configured email will open your mail app.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a href="#home" class="footer-brand">A<span>.</span> <small data-i18n="footer.brand">Designed with intention.</small></a><p>© <span id="currentYear">2026</span> <span id="footerName">Ahmed Shaban Hassan</span>. <span data-i18n="footer.rights">All rights reserved.</span></p><a href="#home" class="footer-back"><span data-i18n="footer.top">Back to top</span><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a></div></footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
